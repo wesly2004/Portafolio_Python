@@ -4,188 +4,163 @@
 <head>
     <meta charset="UTF-8">
     <title>Mi Portafolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        :root {
-            --bg-main: #0f172a;
-            --bg-secondary: #020617;
-            --text-main: #e5e7eb;
-            --text-muted: #94a3b8;
-            --accent: #2563eb;
-        }
-
-        body.light-mode {
-            --bg-main: #f8fafc;
-            --bg-secondary: #e2e8f0;
-            --text-main: #020617;
-            --text-muted: #475569;
-            --accent: #2563eb;
-        }
-
         body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
             scroll-behavior: smooth;
-            transition: all 0.3s ease;
+            background-color: #0b1020;
+            color: #eaeaf0;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.light {
+            background-color: #f5f6fa;
+            color: #1e1e1e;
         }
 
         section {
-            padding: 80px 0;
+            padding: 70px 0;
         }
 
-        h1, h2, h5 {
-            color: var(--text-main);
+        .icon-svg {
+            width: 48px;
+            height: 48px;
+            fill: currentColor;
+            transition: transform 0.2s;
         }
 
-        p {
-            color: var(--text-muted);
-        }
-
-        .navbar {
-            background-color: var(--bg-secondary) !important;
-        }
-
-        .toggle-btn {
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            background: transparent;
-            padding: 6px 12px;
-            border-radius: 6px;
-        }
-
-        .toggle-btn:hover {
-            background-color: var(--accent);
-            color: white;
-        }
-
-        header {
-            background: linear-gradient(135deg, #020617, #0f172a);
-        }
-
-        body.light-mode header {
-            background: linear-gradient(135deg, #e2e8f0, #f8fafc);
-        }
-
-        footer {
-            background-color: var(--bg-secondary);
-        }
-
-        .icon-row img {
-            transition: transform 0.2s ease;
-        }
-
-        .icon-row img:hover {
+        .icon-svg:hover {
             transform: scale(1.15);
         }
 
-        #proyectos {
-            min-height: 300px;
-            border-top: 1px dashed var(--text-muted);
+        .toggle-btn {
+            border: 1px solid #fff;
+            background: transparent;
+            color: inherit;
+            border-radius: 20px;
+            padding: 6px 14px;
+            cursor: pointer;
+        }
+
+        .card-dark {
+            background-color: #11162a;
+            border-radius: 15px;
+        }
+
+        body.light .card-dark {
+            background-color: #ffffff;
         }
     </style>
 </head>
-
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-dark fixed-top" style="background:#070b17;">
     <div class="container">
-        <a class="navbar-brand text-white" href="#">Mi Portafolio</a>
-
-        <div class="ms-auto">
-            <button class="toggle-btn" onclick="toggleMode()">🌙 / ☀️</button>
-        </div>
+        <span class="navbar-brand">Mi Portafolio</span>
+        <button class="toggle-btn" onclick="toggleTheme()">🌙 / ☀️</button>
     </div>
 </nav>
 
-<header class="text-center text-white" style="padding:140px 0;">
-    <div class="container">
+<header class="text-center" style="padding:130px 20px;">
+    <h1 class="fw-bold">Wesly Estévez</h1>
+    <p class="fs-5">
+        Junior Software Developer <br>
+        Backend Developer – Django & Python
+    </p>
 
-        <h1 class="display-4 fw-bold">Wesly Estévez</h1>
-        <p class="lead fs-5">
-            Junior Software Developer | Backend Developer specializing in Django, Python, MySQL, C#, .NET
-        </p>
-
-        <img src="{% static 'img/img-wesly.png' %}"
-             alt="Mi foto"
-             class="rounded-circle shadow"
-             style="width:180px;height:180px;object-fit:cover;border:4px solid white;">
-
-        <!-- TECHNOLOGIES -->
-        <div class="mt-4">
-            <h5>Technologies</h5>
-            <div class="d-flex justify-content-center gap-4 flex-wrap icon-row">
-                <img src="{% static 'icons/python.png' %}" width="40">
-                <img src="{% static 'icons/django.png' %}" width="40">
-                <img src="{% static 'icons/mysql.png' %}" width="40">
-                <img src="{% static 'icons/git.png' %}" width="40">
-                <img src="{% static 'icons/github.png' %}" width="40">
-                <img src="{% static 'icons/csharp.png' %}" width="40">
-                <img src="{% static 'icons/dotnet.png' %}" width="40">
-                <img src="{% static 'icons/sql.png' %}" width="40">
-            </div>
-        </div>
-
-        <!-- TOOLS -->
-        <div class="mt-4">
-            <h5>Tools</h5>
-            <div class="d-flex justify-content-center gap-4 flex-wrap icon-row">
-                <img src="{% static 'icons/vscode.png' %}" width="40">
-                <img src="{% static 'icons/visualstudio2022.png' %}" width="40">
-                <img src="{% static 'icons/sqlserver.png' %}" width="40">
-                <img src="{% static 'icons/nodejs.png' %}" width="40">
-                <img src="{% static 'icons/copilot.png' %}" width="40">
-                <img src="{% static 'icons/chatgpt.png' %}" width="40">
-                <img src="{% static 'icons/linux.png' %}" width="40">
-            </div>
-        </div>
-
-    </div>
+    <img src="{% static 'img/img-wesly.png' %}"
+         alt="Foto de perfil"
+         class="rounded-circle mt-4"
+         style="width:180px;height:180px;object-fit:cover;border:4px solid #4f7cff;">
 </header>
 
-<section id="sobre-mi">
-    <div class="container text-center">
-        <h2>About Me</h2>
-        <p class="fs-5">
-            I am a passionate software developer focused on building efficient and scalable solutions.
-            I specialize in backend development using Python, Django, and modern technologies.
-        </p>
+<!-- TECHNOLOGIES -->
+<section class="text-center">
+    <h2 class="mb-4">Technologies</h2>
+    <div class="d-flex justify-content-center gap-4 flex-wrap">
+
+        <!-- C# -->
+        <svg class="icon-svg" viewBox="0 0 24 24"><text x="3" y="18" font-size="18">C#</text></svg>
+
+        <!-- .NET -->
+        <svg class="icon-svg" viewBox="0 0 24 24"><text x="2" y="18" font-size="16">.NET</text></svg>
+
+        <!-- SQL Server -->
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M3 5v10c0 2 18 2 18 0V5"/>
+        </svg>
+
+        <!-- Node.js -->
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <polygon points="12,2 22,7 22,17 12,22 2,17 2,7"/>
+        </svg>
+
+        <!-- Docker -->
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <rect x="3" y="10" width="4" height="4"/>
+            <rect x="8" y="10" width="4" height="4"/>
+            <rect x="13" y="10" width="4" height="4"/>
+            <path d="M2 15h20c0 3-2 5-5 5H7c-3 0-5-2-5-5z"/>
+        </svg>
+
     </div>
 </section>
 
-<section id="contacto">
-    <div class="container text-center">
-        <h2>Contact Me</h2>
-        <div class="d-flex justify-content-center gap-4 icon-row">
-            <a href="https://www.linkedin.com/in/wesly-estevez-148aa6266/" target="_blank">
-                <img src="{% static 'icons/linkedin.png' %}" width="45">
-            </a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wesslyesteves81@gmail.com" target="_blank">
-                <img src="{% static 'icons/gmail.png' %}" width="45">
-            </a>
-            <a href="https://github.com/wesly2004" target="_blank">
-                <img src="{% static 'icons/github.png' %}" width="45">
-            </a>
-        </div>
+<!-- TOOLS -->
+<section class="text-center">
+    <h2 class="mb-4">Tools</h2>
+    <div class="d-flex justify-content-center gap-4 flex-wrap">
+
+        <!-- VS Code -->
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M3 12l7-7v14z"/>
+            <rect x="10" y="4" width="10" height="16"/>
+        </svg>
+
+        <!-- Visual Studio -->
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M3 6l6 6-6 6z"/>
+            <rect x="9" y="4" width="12" height="16"/>
+        </svg>
+
+        <!-- GitHub Copilot -->
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8"/>
+        </svg>
+
+        <!-- ChatGPT -->
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M12 2a10 10 0 1 0 10 10"/>
+        </svg>
+
+        <!-- Linux -->
+        <svg class="icon-svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="6" r="3"/>
+            <ellipse cx="12" cy="15" rx="6" ry="7"/>
+        </svg>
+
     </div>
 </section>
 
-<!-- PROYECTOS -->
-<section id="proyectos">
-    <div class="container text-center">
+<!-- PROJECTS -->
+<section>
+    <div class="container text-center card-dark p-5">
         <h2>Projects</h2>
-        <!-- Zona en blanco para futuros proyectos -->
+        <p class="opacity-75">Próximamente agregaré mis proyectos aquí 🚀</p>
     </div>
 </section>
 
-<footer class="text-center p-3">
-    © 2025 Mi Portafolio · Django & Python
+<footer class="text-center py-3">
+    © 2025 – Desarrollado con Django & Python
 </footer>
 
 <script>
-    function toggleMode() {
-        document.body.classList.toggle("light-mode");
+    function toggleTheme() {
+        document.body.classList.toggle('light');
     }
 </script>
 
